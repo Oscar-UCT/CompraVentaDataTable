@@ -27,30 +27,24 @@ namespace CompraVenta
 
         static void CargarColumnas()
         {
-            DataColumn columna = new DataColumn("ID");
-            columna.DataType = typeof(int);
+            DataColumn columna = new DataColumn("ID", typeof(int));
             columna.Unique = true;
             columna.AutoIncrement = true;
             tablaPedidos.Columns.Add(columna);
 
-            columna = new DataColumn("Nombre");
-            columna.DataType = typeof(string);
+            columna = new DataColumn("Nombre", typeof(string));
             tablaPedidos.Columns.Add(columna);
 
-            columna = new DataColumn("RUT");
-            columna.DataType = typeof(string);
+            columna = new DataColumn("RUT",typeof(string));
             tablaPedidos.Columns.Add(columna);
 
-            columna = new DataColumn("Dirección");
-            columna.DataType = typeof(string);
+            columna = new DataColumn("Dirección", typeof(string));
             tablaPedidos.Columns.Add(columna);
 
-            columna = new DataColumn("Producto");
-            columna.DataType = typeof(string);
+            columna = new DataColumn("Producto", typeof(string));
             tablaPedidos.Columns.Add(columna);
 
-            columna = new DataColumn("Medio de Pago");
-            columna.DataType = typeof(string);
+            columna = new DataColumn("Medio de Pago", typeof(string));
             tablaPedidos.Columns.Add(columna);
         }
 
@@ -132,8 +126,8 @@ namespace CompraVenta
 
         bool CamposValidos()
         {
-            if (nombreInput.TextLength > 3 &&
-                direccionInput.TextLength > 3 &&
+            if (nombreInput.TextLength >= 2 &&
+                direccionInput.TextLength >= 2 &&
                 rutInput.TextLength == 9 &&
                 productoSelect.SelectedItem != null &&
                 (debitoSelect.Checked || creditoSelect.Checked)
